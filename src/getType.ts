@@ -1,7 +1,3 @@
-interface Options {
-  extensible?: "any" | "unknown";
-}
-
 type JSONType = "string" | "number" | "boolean" | "object" | "array" | "null";
 
 /**
@@ -43,6 +39,11 @@ function isPrimitiveType(jsonType: JSONType): boolean {
   }
 }
 
+interface Options {
+  additionalProperties?: "any" | "unknown";
+  additionalItems?: "any" | "unknown";
+}
+
 /**
  * Takes a parsed JSON object and returns a matching type declaration
  */
@@ -58,8 +59,10 @@ export function getDeclaration(json: any, options: Options = {}): string {
     const propertyDeclarations = Object.keys(obj).map(
       (key) => `${key}:${getDeclaration(obj[key], options)};`
     );
-    if (options.extensible) {
-      propertyDeclarations.push(`[key:string]:${options.extensible};`);
+    if (options.additionalProperties) {
+      propertyDeclarations.push(
+        `[key:string]:${options.additionalProperties};`
+      );
     }
 
     return `{${propertyDeclarations.join("")}}`;
@@ -70,8 +73,8 @@ export function getDeclaration(json: any, options: Options = {}): string {
     const itemDeclarations = [
       ...new Set(arr.map((item) => getDeclaration(item, options)))
     ];
-    if (options.extensible) {
-      itemDeclarations.push(options.extensible);
+    if (options.additionalItems) {
+      itemDeclarations.push(options.additionalItems);
     }
     if (itemDeclarations.length === 0) return "[]";
     if (itemDeclarations.length === 1) return `${itemDeclarations[0]}[]`;
