@@ -1,7 +1,7 @@
 {
-  "name": "json-typegen",
+  "name": "json-typings",
   "version": "0.0.1",
-  "description": "Generate TypeScript declarations from JSON-compatible JavaScript objects",
+  "description": "Generate TypeScript type definitions from JSON-compatible JavaScript objects",
   "main": "./lib/main.js",
   "types": "./lib/main.d.ts",
   "scripts": {
@@ -20,9 +20,11 @@
     "typescript": "^4.0.3"
   },
   "keywords": [
-    "typescript",
     "json",
+    "typescript",
     "typings",
+    "type",
+    "dts",
     "declaration",
     "javascript"
   ]
