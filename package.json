@@ -1,20 +1,26 @@
 {
-  "name": "vanilla-typescript",
-  "version": "1.0.0",
-  "description": "JavaScript and TypeScript example starter project",
+  "name": "json-typegen",
+  "version": "0.0.1",
+  "description": "Generate TypeScript declarations from JSON-compatible JavaScript objects",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "test": "jest"
   },
-  "dependencies": {
-    "@types/jest": "26.0.14"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "parcel-bundler": "^1.6.1"
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.14",
+    "babel-jest": "^26.5.2",
+    "jest": "^26.5.2",
+    "typescript": "^4.0.3"
   },
   "keywords": [
     "typescript",
+    "json",
+    "typings",
+    "declaration",
     "javascript"
   ]
 }

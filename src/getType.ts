@@ -4,7 +4,7 @@ type JSONType = "string" | "number" | "boolean" | "object" | "array" | "null";
  * Takes a randomly nested property from a JSON-object
  * and returns its JSONType
  */
-export function getType(json: any): JSONType {
+function getType(json: any): JSONType {
   if (json === null) return "null";
 
   const jsonType = typeof json;
@@ -39,7 +39,7 @@ function isPrimitiveType(jsonType: JSONType): boolean {
   }
 }
 
-interface Options {
+export interface Options {
   additionalProperties?: "any" | "unknown";
   additionalItems?: "any" | "unknown";
 }
@@ -80,4 +80,6 @@ export function getDeclaration(json: any, options: Options = {}): string {
     if (itemDeclarations.length === 1) return `${itemDeclarations[0]}[]`;
     if (itemDeclarations.length) return `(${itemDeclarations.join("|")})[]`;
   }
+
+  return "";
 }
