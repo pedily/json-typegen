@@ -11,7 +11,10 @@
     ],
     "rootDir": "src",
     "moduleResolution": "node",
-    "downlevelIteration": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "outDir": "lib",
+    "target": "es5"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["**/*.spec.*"]
 }

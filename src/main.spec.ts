@@ -1,5 +1,5 @@
-import { getDeclaration } from "./getType";
-import example from "./example.json";
+import { getDeclaration } from "./main";
+import example from "./example.spec.json";
 
 describe("getDeclaration", () => {
   describe("primitives", () => {

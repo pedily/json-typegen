@@ -70,9 +70,14 @@ export function getDeclaration(json: any, options: Options = {}): string {
 
   if (jsonType === "array") {
     const arr = json as any[];
-    const itemDeclarations = [
-      ...new Set(arr.map((item) => getDeclaration(item, options)))
-    ];
+    
+    const declarationMap: {[key: string]: boolean} = {};
+    for (const item of arr) {
+      const declaration = getDeclaration(item, options);
+      declarationMap[declaration] = true;
+    }
+    const itemDeclarations = Object.keys(declarationMap);
+    
     if (options.additionalItems) {
       itemDeclarations.push(options.additionalItems);
     }
