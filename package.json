@@ -1,6 +1,6 @@
 {
   "name": "json-typings",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate TypeScript type definitions from JSON-compatible JavaScript objects",
   "repository": {
     "url": "git://github.com/pedily/json-typings.git"
